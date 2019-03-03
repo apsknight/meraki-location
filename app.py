@@ -64,9 +64,7 @@ def get_locationJSON():
     if locationdata["type"] == "DevicesSeen":
         print("WiFi Devices Seen")
         # print(locationdata)
-        print('Sending Post request')
-        requests.get("http://2019.almafiesta.com/testing2019/location.php", data=locationdata)
-
+        
     elif locationdata["type"] == "BluetoothDevicesSeen":
         print("Bluetooth Devices Seen")
     else:
