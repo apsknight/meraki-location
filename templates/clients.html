@@ -1,0 +1,180 @@
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+    <title>Clients</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>
+                MAC ADDRESS
+            </th>
+            <th>
+                Latitude
+            </th>
+            <th>
+                Longitude
+            </th>
+            <th>
+                ipv4
+            </th>
+            <th>
+                SSID
+            </th>
+            <th>
+                OS
+            </th>
+            <th>
+                Seen Time
+            </th>
+            <th>
+                Manufacturer
+            </th>
+        </tr>
+        {% for observation in observations %}
+        <tr>
+            <td>
+                {{observation["clientMac"]}}
+            </td>
+            <td>
+                {{observation["location"]["lat"]}}
+            </td>
+            <td>
+                {{observation["location"]["lng"]}}
+            </td>
+            <td>
+                {{observation["ipv4"]}}
+            </td>
+            <td>
+                {{observation["ssid"]}}
+            </td>
+            <td>
+                {{observation["os"]}}
+            </td>
+            <td>
+                {{observation["seenTime"]}}
+            </td>
+            <td>
+                {{observation["manufacturer"]}}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>
+ -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Reachable clients</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+        body {
+            margin: 0;
+            background: -webkit-linear-gradient(45deg, #49a09d, #5f2c82);
+            background: linear-gradient(45deg, #49a09d, #5f2c82);
+            font-family: sans-serif;
+            font-weight: 100;
+        }
+        .container {
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            /* -webkit-transform: translate(-50%, -50%);
+                    transform: translate(-50%, -50%); */
+        }
+        table {
+            width: 1300px;
+            border-collapse: collapse;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        th,
+        td {
+            padding: 5px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+        th {
+            text-align: left;
+        }
+        thead th {
+            background-color: #55608f;
+        }
+        tbody tr:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        tbody td {
+            position: relative;
+        }
+        tbody td:hover:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: -9999px;
+            bottom: -9999px;
+            background-color: rgba(255, 255, 255, 0.2);
+            z-index: -1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>MAC Address</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
+                    <th>ipv4</th>
+                    <th>SSID</th>
+                    <th>OS</th>
+                    <th>Seen time</th>
+                    <th>Manufacturer</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for observation in observations %}
+                <tr>
+                    <td>
+                        {{observation["clientMac"]}}
+                    </td>
+                    <td>
+                        {{observation["location"]["lat"]}}
+                    </td>
+                    <td>
+                        {{observation["location"]["lng"]}}
+                    </td>
+                    <td>
+                        {{observation["ipv4"]}}
+                    </td>
+                    <td>
+                        {{observation["ssid"]}}
+                    </td>
+                    <td>
+                        {{observation["os"]}}
+                    </td>
+                    <td>
+                        {{observation["seenTime"]}}
+                    </td>
+                    <td>
+                        {{observation["manufacturer"]}}
+                    </td>
+                </tr>
+                {% endfor %}
+        </table>
+    </div>
+</body>
+
+</html>
